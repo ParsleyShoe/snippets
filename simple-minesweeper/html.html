@@ -1,0 +1,24 @@
+<div id="minesweeper" style="width: fit-content; text-align: center;">
+    <table>
+        <tbody id="ms-body"></tbody>
+    </table>
+    <br />
+    <div>
+        mines: <span id="mineCount" style="margin-right: 30px;"></span>
+        flags: <span id="flagCount">0</span>
+    </div>
+    <hr />
+    <label>width</label>
+    <input id="colCount" type="number" min=5 max=15 value=10 />
+    <label>height</label>
+    <input id="rowCount" type="number" min=5 max=15 value=10 />
+    <label>mines</label>
+    <input id="mines" type="number" min=5 max=100 value=10 />
+    <button onclick="startNewGame()">New game</button>
+    <br />
+    <br />
+    <div>
+        <span id="minePercentage"></span> of the cells will be mines -
+        (<span id="difficulty"></span>)
+    </div>
+</div>

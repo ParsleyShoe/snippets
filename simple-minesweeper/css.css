@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+}
+td {
+    height: 30px;
+    width: 30px;
+    max-height: 30px;
+    max-width: 30px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ccc;
+    margin: 5px;
+    font-weight: bold;
+}
+input {
+    width: 3.1em;
+}
+table, td {
+    border: 1px solid black;
+}
+table {
+    border-collapse: collapse;
+}
+.revealed {
+    background-color: #fff;
+}
+.flagged {
+    color: red;
+}
+.mine.revealed {
+    background-color: black !important;
+	color: white !important;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
