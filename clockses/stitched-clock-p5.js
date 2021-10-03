@@ -38,7 +38,7 @@ function draw() {
     let minAng = map(min, 0, 60, 0, 360);
     if (h <= 12) stroke(dayM);
     else stroke(nightM);
-    for (let i = 0; i < minAng; i++) {
+    for (let i = 0; i <= minAng; i++) {
         if (i % 6 == 0) {
             arc(0, 0, 400, 400, i + dashLength / 2 / 2, i + 6 - dashLength / 2 / 2);
         }
@@ -47,7 +47,7 @@ function draw() {
     let secAng = map(sec, 0, 60, 0, 360);
     if (h <= 12) stroke(dayS);
     else stroke(nightS);
-    for (let i = 0; i < secAng; i++) {
+    for (let i = 0; i <= secAng; i++) {
         if (i % 6 == 0) {
             arc(0, 0, 450, 450, i + dashLength / 2 / 2, i + 6 - dashLength / 2 / 2);
         }

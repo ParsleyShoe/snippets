@@ -4,47 +4,20 @@ function setup() {
 
 function draw() {
     background(0);
-    let step = width / 7;
-
-    let h = hour();
-    let min = minute();
-    let sec = second();
-
     stroke(255);
 
-    let hLeft = h;
-    for (let p = 5; p >= 0; p--) {
-        let powerOfTwo = 2 ** p;
-        if (hLeft >= powerOfTwo) {
-            hLeft -= powerOfTwo;
-            fill(255);
-        } else {
-            noFill();
-        }
-        circle((6 - p) * step, height / 4, 30);
-    }
+    let times = [hour(), minute(), second()];
 
-    let mLeft = min;
-    for (let p = 5; p >= 0; p--) {
-        let powerOfTwo = 2 ** p;
-        if (mLeft >= powerOfTwo) {
-            mLeft -= powerOfTwo;
-            fill(255);
-        } else {
+    for (let i = 0; i < 3; i++) {
+        let time = times[i];
+        for (let p = 5; p >= 0; p--) {
             noFill();
+            const powerOfTwo = 2 ** p;
+            if (time >= powerOfTwo) {
+                time -= powerOfTwo;
+                fill(255);
+            }
+            circle((6 - p) * width / 7, height * (i + 1) / 4, 25);
         }
-        circle((6 - p) * step, (height * 2) / 4, 30);
-    }
-
-    let sLeft = sec;
-    for (let p = 5; p >= 0; p--) {
-        let powerOfTwo = 2 ** p;
-        if (sLeft >= powerOfTwo) {
-            sLeft -= powerOfTwo;
-            fill(255);
-        } else {
-            noFill();
-        }
-        circle((6 - p) * step, (height * 3) / 4, 30);
     }
 }
