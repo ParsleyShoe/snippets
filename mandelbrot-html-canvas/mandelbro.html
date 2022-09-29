@@ -1,0 +1,62 @@
+<canvas id="gardun" width="1000" height="1000"></canvas>
+<br>
+<label>divisor / zoom:</label>
+<input id="divisor" value="100000" />
+<br>
+<label>x offset:</label>
+<input id="xOff" value="0.233" />
+<label>y offset:</label>
+<input id="yOff" value="0.655" />
+<br>
+<button onclick="drawUniverse()">Draw The Universe</button>
+<script>
+	var canvas = document.getElementsByTagName("canvas")[0];
+    var m = canvas.getContext("2d");
+
+    function createAtom(x, y, r, g, b) {
+        m.fillStyle = `rgb(${r}, ${g}, ${b})`;
+        m.fillRect(x, y, 3, 3);
+    }
+
+	function getInputVal(id) {
+		return Number(document.getElementById(id).value);
+	}
+
+    function drawUniverse() {
+		m.clearRect(0, 0, canvas.width, canvas.height);
+		var divisor = getInputVal("divisor");
+		var xOff = getInputVal("xOff");
+		var yOff = getInputVal("yOff");
+
+        for (y = 1; y < 1000; y++) {
+            for (x = 1; x < 1000; x++) {
+                var dx = (x - 500) / divisor - xOff;
+                var dy = (y - 500) / divisor - yOff;
+                var a = dx;
+                var b = dy;
+
+                for (t = 1; t < 1000; t++) {
+                    var d = (a * a) - (b * b) + dx;
+                    var b = 2 * (a * b) + dy;
+                    var a = d;
+                    var h = d > 200;
+
+                    if (h) {
+                        createAtom(x,
+                                   y,
+                                   t * 3,
+                                   t,
+                                   t * 0.5);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+	document.getElementById("divisor").addEventListener("change", drawUniverse);
+	document.getElementById("xOff").addEventListener("change", drawUniverse);
+	document.getElementById("yOff").addEventListener("change", drawUniverse);
+
+	drawUniverse();
+</script>
