@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+}
+
+.container {
+    width: 50%;
+    height: 75%;
+    margin: 100px auto 0;
+    background-color: lightblue;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 0 !important;
+    margin: auto !important;
+}
+
+table td {
+    border: 1px solid gray !important;
+    width: 5px;
+    height: 5px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 5pt;
+    padding: 0;
+    text-overflow: clip;
+}
